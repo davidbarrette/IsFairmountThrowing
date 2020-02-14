@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      throwing: false,
+      date: "This Saturday 11:00PM"
+    }
+  }
+
+
+
+  renderScreen() {
+    if(this.state.throwing) {
+      return (
+        <div className = "App-throwing">
+          <p style={{fontSize: '80px', margin: 0}}> YES </p>
+          <p style={{fontSize: '15px'}}> {this.state.date} </p>
+        </div>
+      );
+    } else {
+      return (
+        <div className = "App-notThrowing">
+          <p style={{fontSize: '80px', margin: 0}}> No. </p>
+          <p style={{fontSize: '15px'}}> {this.state.date} </p>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <> {this.renderScreen()} </>
+    );
+  }
 }
 
 export default App;
