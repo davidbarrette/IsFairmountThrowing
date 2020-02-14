@@ -5,8 +5,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      throwing: false,
-      date: "This Saturday 11:00PM"
+      throwing: true,
+      date: "Party is this Saturday 11:00PM"
     }
   }
 
