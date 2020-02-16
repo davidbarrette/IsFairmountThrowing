@@ -6,7 +6,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       throwing: false,
-      date: "maybe next week or something"
+      date: "probably in a few weeks"
     }
   }
 
