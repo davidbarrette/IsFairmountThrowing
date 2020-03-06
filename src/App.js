@@ -10,8 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      throwing: false,
-      date: "Not until Franklin & Zoraiz pass their econ exams"
+      throwing: true,
+      date: "TODAY! Founders day after party 11PM"
     }
   }
 
@@ -23,7 +23,6 @@ class App extends React.Component {
         <div className = "App-throwing">
           <p style={{fontSize: '80px', margin: 0}}> YES </p>
           <p style={{fontSize: '25px'}}> {this.state.date} </p>
-          <p style={{fontSize: '15px'}}> (Also probably post founders day)</p>
 
 
         </div>
@@ -33,7 +32,6 @@ class App extends React.Component {
         <div className = "App-notThrowing">
           <p style={{fontSize: '80px', margin: 0}}> No. </p>
           <p style={{fontSize: '15px'}}> {this.state.date} </p>
-          <p style={{fontSize: '15px'}}> (Also probably post founders day)</p>
 
         </div>
       );
