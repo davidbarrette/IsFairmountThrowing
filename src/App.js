@@ -14,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       throwing: true,
-      date: "sOcIaL DiSTanCINg"
+      date: "sOcIaL DiSTanCINg 11PM"
     }
   }
 
