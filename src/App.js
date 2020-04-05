@@ -14,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       throwing: true,
-      date: "sOcIaL DiSTanCINg 11PM"
+      date: "Darty September 7th 2020"
     }
   }
 
@@ -28,8 +28,6 @@ class App extends React.Component {
           <p style={{fontSize: '30px'}}> {this.state.date} </p>
 
           <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
-            <img style ={{maxWidth: '35%', height: 'auto'}}src={plague2} alt="plague2" />;
-            <img style ={{maxWidth: '40%', height: 'auto'}} src={plague1} alt="plague1" />;
 
           </div>
 
