@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
-import frog1 from './assets/frog1.png'
-import frog2 from './assets/frog2.png'
-import frog3 from './assets/frog3.png'
-import plague1 from './assets/plague1.png'
-import plague2 from './assets/plague2.png'
-import shirt from './assets/shirt.png'
+
+import Throwing from './Components/ThrowingComponent/Throwing.js'
+import NavugationBar from './Components/NavigationBar/NavigationBar.js'
+
+import HomePage from './Components/Pages/HomePage.js'
+import PicturePage from './Components/Pages/PicturePage.js'
+
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import NavigationBar from './Components/NavigationBar/NavigationBar.js';
 
 
 
@@ -13,15 +15,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      throwing: false,
-      date: "2021 or something"
+      throwing: true,
+      partydate: "EXAMPLE DATE MM/DD/YYYY"
     }
   }
 
 
-
   renderScreen() {
-    if(this.state.throwing) {
       return (
         <div className = "App-throwing">
           <p style={{fontSize: '100px', margin: 0}}> YES </p>
@@ -46,7 +46,6 @@ class App extends React.Component {
 
         </div>
       );
-    }
   }
 
   render() {

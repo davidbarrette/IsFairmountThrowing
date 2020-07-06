@@ -1,0 +1,19 @@
+.App-throwing {
+    height: 225px;
+    width: 100%;
+    background-color: #4fde2a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+  
+  .App-notThrowing {
+    height: 180px;
+    width: 100%;
+    background-color: #c22727;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
