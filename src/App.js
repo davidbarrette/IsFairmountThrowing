@@ -5,7 +5,7 @@ import frog2 from './assets/frog2.png'
 import frog3 from './assets/frog3.png'
 import plague1 from './assets/plague1.png'
 import plague2 from './assets/plague2.png'
-
+import shirt from './assets/shirt.png'
 
 
 
@@ -13,8 +13,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      throwing: true,
-      date: "Darty September 7th 2020"
+      throwing: false,
+      date: "2021 or something"
     }
   }
 
@@ -26,8 +26,10 @@ class App extends React.Component {
         <div className = "App-throwing">
           <p style={{fontSize: '100px', margin: 0}}> YES </p>
           <p style={{fontSize: '30px'}}> {this.state.date} </p>
+          <p style={{fontSize: '20px'}}> Merch drop coming soon! </p>
 
           <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
+            <img src = {shirt}/>
 
           </div>
 
