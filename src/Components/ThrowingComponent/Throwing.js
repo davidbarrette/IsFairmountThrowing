@@ -2,9 +2,10 @@ import React from 'react';
 import './Throwing.css';
 
 export default class IsThrowing extends React.Component{
-
-
     render(){
+      
+      var notThrowingText = "Due to Covid-19, open gatherings are indefinitely postponed";
+      
       if(this.props.throwing){
         return (
           <div className = "header-container">
@@ -19,8 +20,8 @@ export default class IsThrowing extends React.Component{
         return (
           <div className = "header-container">
             <div className = "App-notThrowing">
-              <p style={{fontSize: '80px', margin: 0}}> No. </p>
-              <p style={{fontSize: '15px'}}> Check Again Soon </p>
+              <p style={{fontSize: '80px', margin: 0}}> No </p>
+              <p style={{fontSize: '15px'}}> {notThrowingText} </p>
     
               <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
     

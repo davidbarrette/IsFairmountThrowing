@@ -1,9 +1,14 @@
 import React from 'react';
 
+import "./HomePage.css"
+
 export default class HomePage extends React.Component{
     render(){
       return(
-          <h3>This is the home page</h3>
+        <div idName = "HomePageContainer">
+          <h2 className="WelcomeText">Welcome to Is Fairmount Throwing!</h2>
+          <p  className="WelcomeText">The go to place to find out the place to be this weekend!</p>
+        </div>
       )
     }
 }
