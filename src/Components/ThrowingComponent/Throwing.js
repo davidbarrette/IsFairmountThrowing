@@ -4,8 +4,6 @@ import './Throwing.css';
 export default class IsThrowing extends React.Component{
     render(){
       
-      var notThrowingText = "Due to Covid-19, open gatherings are indefinitely postponed";
-      
       if(this.props.throwing){
         return (
           <div className = "header-container">
@@ -20,8 +18,10 @@ export default class IsThrowing extends React.Component{
         return (
           <div className = "header-container">
             <div className = "App-notThrowing">
+              {/* <img className='Plague1'   */}
+                {/* src={require('../../assets/plague1.png')} /> */}
               <p style={{fontSize: '80px', margin: 0}}> No </p>
-              <p style={{fontSize: '15px'}}> {notThrowingText} </p>
+              <p style={{fontSize: '15px'}}> {this.props.notThrowingText} </p>
     
               <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
     

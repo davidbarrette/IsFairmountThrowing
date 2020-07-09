@@ -3,8 +3,8 @@ import React from 'react';
 import Throwing from './Components/ThrowingComponent/Throwing.js'
 import NavugationBar from './Components/NavigationBar/NavigationBar.js'
 
-import HomePage from './Components/Pages/HomePage.js'
-import PicturePage from './Components/Pages/PicturePage.js'
+import HomePage from './Components/Pages/HomePage/HomePage.js'
+import PicturePage from './Components/Pages/PicturePage/PicturePage.js'
 import RedDoor from './Components/Pages/RedDoor/RedDoor.js';
 
 import NavigationBar from './Components/NavigationBar/NavigationBar.js';
@@ -19,7 +19,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       throwing: false,
-      partydate: "EXAMPLE DATE MM/DD/YYYY"
+      partydate: "EXAMPLE DATE MM/DD/YYYY",
+      notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed"
     }
   }
 
@@ -29,15 +30,12 @@ class App extends React.Component {
         <div className = "App">
           <Throwing
             throwing = {this.state.throwing} 
-            partydate= {this.state.partydate}/>
+            partydate= {this.state.partydate}
+            notThrowingText= {this.state.notThrowingText}/>
 
           <BrowserRouter>
           <NavigationBar/>
-          <img src="./assets/download.jpg"/>
             <Switch>
-            <img src="./assets/MacalesterCollegeAndHamms.jpg"/>
-
-
               <Route path='/' component ={HomePage} exact/>
               <Route path='/PicturePage' component ={PicturePage} exact/>
               <Route path='/RedDoor' component ={RedDoor} exact/>

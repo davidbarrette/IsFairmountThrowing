@@ -17,3 +17,9 @@
     align-items: center;
     color: white;
   }
+
+  .Plague1 {
+    align-self: start;
+    height: 100px;
+    background: white;
+  }
