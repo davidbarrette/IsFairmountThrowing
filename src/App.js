@@ -1,13 +1,11 @@
 import React from 'react';
+import './App.css';
+import frog1 from './assets/frog1.png'
+import frog2 from './assets/frog2.png'
+import frog3 from './assets/frog3.png'
+import plague1 from './assets/plague1.png'
+import plague2 from './assets/plague2.png'
 
-import Throwing from './Components/ThrowingComponent/Throwing.js'
-import NavugationBar from './Components/NavigationBar/NavigationBar.js'
-
-import HomePage from './Components/Pages/HomePage.js'
-import PicturePage from './Components/Pages/PicturePage.js'
-
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
-import NavigationBar from './Components/NavigationBar/NavigationBar.js';
 
 
 
@@ -15,21 +13,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      throwing: true,
-      partydate: "EXAMPLE DATE MM/DD/YYYY"
+      throwing: false,
+      date: "party july 2121 (100 year reunion) - theme: what you would wear to your grave"
     }
   }
 
 
+
   renderScreen() {
+    if(this.state.throwing) {
       return (
         <div className = "App-throwing">
           <p style={{fontSize: '100px', margin: 0}}> YES </p>
           <p style={{fontSize: '30px'}}> {this.state.date} </p>
-          <p style={{fontSize: '20px'}}> Merch drop coming soon! </p>
 
           <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
-            <img src = {shirt}/>
 
           </div>
 
@@ -46,6 +44,7 @@ class App extends React.Component {
 
         </div>
       );
+    }
   }
 
   render() {
