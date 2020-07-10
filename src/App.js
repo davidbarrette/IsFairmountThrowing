@@ -1,13 +1,5 @@
 import React from 'react';
 import './App.css';
-import frog1 from './assets/frog1.png'
-import frog2 from './assets/frog2.png'
-import frog3 from './assets/frog3.png'
-import plague1 from './assets/plague1.png'
-import plague2 from './assets/plague2.png'
-
-
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 
