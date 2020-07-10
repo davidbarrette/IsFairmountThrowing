@@ -1,3 +1,18 @@
 .Navigation-bar {
     background: #000;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.NavBar-Item {
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.NavBar-Item:hover {
+    background-color: gray;
 }

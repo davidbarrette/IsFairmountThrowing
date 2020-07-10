@@ -2,9 +2,8 @@ import React from 'react';
 import './Throwing.css';
 
 export default class IsThrowing extends React.Component{
-
-
     render(){
+      
       if(this.props.throwing){
         return (
           <div className = "header-container">
@@ -19,8 +18,10 @@ export default class IsThrowing extends React.Component{
         return (
           <div className = "header-container">
             <div className = "App-notThrowing">
-              <p style={{fontSize: '80px', margin: 0}}> No. </p>
-              <p style={{fontSize: '15px'}}> Check Again Soon </p>
+              {/* <img className='Plague1'   */}
+                {/* src={require('../../assets/plague1.png')} /> */}
+              <p style={{fontSize: '80px', margin: 0}}> No </p>
+              <p style={{fontSize: '15px'}}> {this.props.notThrowingText} </p>
     
               <div style ={{flex: 1, alignItems: 'horizontal', margin: 'auto'}}>
     

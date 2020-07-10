@@ -1,0 +1,8 @@
+.WelcomeText {
+    text-align: center;
+}
+
+.ImageContainer {
+    display: flex;
+    justify-content: center;
+  }

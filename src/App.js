@@ -7,6 +7,9 @@ import plague1 from './assets/plague1.png'
 import plague2 from './assets/plague2.png'
 
 
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
 
 
 class App extends React.Component {
