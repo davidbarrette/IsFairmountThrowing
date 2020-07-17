@@ -4,3 +4,15 @@
     height: 100vh;
     background-color: black;
   }
+
+  .redDoorImage {
+    position: relative;
+  }
+
+  .clickArea {
+    position: absolute;
+    background-color: rgba(50, 0, 0, 0.05);
+    top: 400px;
+    height: 550px;
+    width: 325px;
+  }

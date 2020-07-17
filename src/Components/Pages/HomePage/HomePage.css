@@ -1,8 +1,22 @@
-.WelcomeText {
+
+.WelcomeTextConatiner-Home{
     text-align: center;
+    background-color: #333;
+    margin: 0px;
+}
+    
+.WelcomeTextConatiner-Home .Header{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.WelcomeTextConatiner-Home .Bullshit{
+    margin: 0px;
 }
 
-.ImageContainer {
+.ImageContainer-Welcome {
     display: flex;
     justify-content: center;
+    background-color: #333;
+    padding-top: 1em;
+    height: 100vh;
   }

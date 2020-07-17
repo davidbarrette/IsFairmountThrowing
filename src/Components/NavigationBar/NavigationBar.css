@@ -12,7 +12,6 @@
     text-decoration: none;
 }
 
-
-.NavBar-Item:hover {
-    background-color: gray;
+.NavItemHome:hover, .NavItemPictures:hover {
+    background-color: #555;
 }
