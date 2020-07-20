@@ -12,6 +12,6 @@
     text-decoration: none;
 }
 
-.NavItemHome:hover, .NavItemPictures:hover {
+.NavItemHome:hover, .NavItemPictures:hover, .NavItemAbout:hover {
     background-color: #555;
 }

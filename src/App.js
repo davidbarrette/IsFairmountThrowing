@@ -9,25 +9,13 @@ import NavigationBar from './Components/NavigationBar/NavigationBar.js';
 // import EventHandler from './Components/EventEmitter.js'
 
 import {BrowserRouter } from 'react-router-dom';
-
-
-// const routes = [
-//   {
-//     Path: "/",
-//     Component: HomePage
-//   },
-    //    Do the rest
-// ]
-
-
-//CREATE AN ABOUT PAGE SO WE CAN GET MORE PEOPLE WORKING ON THE WEBSITE maybe
-
+import RedDoor from './Components/Pages/RedDoor/RedDoor.js';
 
 
 
 function App() {
   const [throwing, setThrowing] = useState(true)
-  const [partyDate, setPartyDate] = useState("MM/DD/YYY")
+  const [partyDate, setPartyDate] = useState("MM/DD")
   const [notThrowingText, setNotThrowingText] = useState("Due to Covid-19, open gatherings are indefinitely postponed")
   const [redRoomPassword, setRedRoomPassword] = useState("a")
   const [redRoomPasswordMet, setRedRoomPasswordMet] = useState(false)

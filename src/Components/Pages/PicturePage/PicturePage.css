@@ -9,15 +9,13 @@
 
 .ImageContainer-Pictures {
     background-color: black;
-    display: grid;
-    grid-template-columns: 500px 250px;
     align-content: center;
-    height: 100%;
+    height: 100vh;
 }
 
 .ImageContainer-Pictures img {
     position: relative;
-    height: 500px;
+    height: 300px;
     margin: 5px;
 }
 

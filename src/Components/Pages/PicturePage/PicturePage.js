@@ -1,42 +1,51 @@
 import React from 'react';
 
+
 import './PicturePage.css'
 
-export default class PicturePage extends React.Component{
-    render(){
-      // const pictures = [
-      //   {src = ""},
-      //   {}
-      // ]
+function PicturePage() {
+  const pictures = [
+    {
+      className: "FoggyClubLights",
+      alt: "Foggy club lights",
+      src: require('../../../assets/BrightLights.jpg')
+    },
+    {
+      className: "HammsAndStreetSigns",
+      alt: "Hamms and street signs",
+      src: require('../../../assets/HammsAndTruckHauling.jpg')
+    },
+    {
+      className: "Lollipop",
+      alt: "Lollipop",
+      src: require('../../../assets/Lollipop.gif')
+    },
+    {
+      className: "MagicWind",
+      alt: "MagicWind",
+      src: require('../../../assets/MagicWind.gif')
+    },
+  ]
+
+
       return(
         <>
           <h3 className="WelcomeText-Pictures">Check out the view of Fairmount!</h3>
-          {/* CSS is in Homepage */}
           <div className='ImageContainer-Pictures'>
             
-            <img
-              className = "FoggyClubLights"
-              alt = "Foggy club lights"
-              src={require('../../../assets/BrightLights.jpg')}/>
-          
-            <img
-              className = "HammsAndStreetSigns"
-              alt = "Hamms and street signs"
-              src={require('../../../assets/HammsAndTruckHauling.jpg')}/>
-
-            <img 
-              className= "Lollipop"
-              alt = "Lollipop"
-              src={require('../../../assets/Lollipop.gif')}/>
-
-            <img 
-              className= "MagicWind"
-              alt = "Magic Wind"
-              src={require('../../../assets/MagicWind.gif')}/> 
-
-
+            {
+              pictures.map((picture) => {
+                return (
+                  <img
+                    className = {picture.className}
+                    alt = { picture.alt }
+                    src={ picture.src }/>
+                )
+              })
+            } 
           </div>
         </>
       )
-    }
 }
+
+export default PicturePage
