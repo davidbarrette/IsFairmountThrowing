@@ -11,7 +11,7 @@ import {NavLink} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 import { Route, Switch } from 'react-router-dom';
 
-function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThrowingText } ) {
+function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThrowingText, redRoomPasswordMet, setRedRoomPasswordMet } ) {
     return(
         <>
             <Navbar className = "Navigation-bar">
@@ -22,20 +22,23 @@ function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThro
                 </Nav>
             </Navbar>
 
-
             <Switch>
                 <Route path='/' component = {HomePage} exact/>
                 <Route path='/PicturePage' component = {PicturePage} exact/>
 
                 <Route path='/RedDoor' render={() => (
-                        <RedDoor redRoomPassword = { redRoomPassword } />
+                        <RedDoor 
+                        redRoomPassword = { redRoomPassword }
+                        setRedRoomPasswordMet = { setRedRoomPasswordMet }/>
                     )} exact/>
 
                 <Route path='/RedRoom' render={() => (
                         <RedRoom 
                             setThrowing = { setThrowing }
                             setPartyDate = { setPartyDate }
-                            setNotThrowingText = { setNotThrowingText } />
+                            setNotThrowingText = { setNotThrowingText }
+                            redRoomPasswordMet = { redRoomPasswordMet }
+                            setRedRoomPasswordMet = { setRedRoomPasswordMet} />
                     )} exact/>
                 
             </Switch>

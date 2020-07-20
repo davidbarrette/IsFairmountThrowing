@@ -8,7 +8,7 @@ export default class HomePage extends React.Component{
         <>
           <div className="WelcomeTextConatiner-Home">
             <h1 className="Header">Welcome to Is Fairmount Throwing!</h1>
-            <i className="Bullshit"><u>The place to be sometime soon!</u></i>
+            <i className="Bullshit">1517 Fairmount Ave</i>
           </div>
 
           <div className="ImageContainer-Welcome">

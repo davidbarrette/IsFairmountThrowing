@@ -6,7 +6,7 @@ import "./RedDoor.css"
 import ClickArea from './ClickArea';
 
 
-function RedDoor( { redRoomPassword } ) {
+function RedDoor( { redRoomPassword, redRoomPasswordMet, setRedRoomPasswordMet } ) {
   console.log("RedDoor " +redRoomPassword)
   return(
     <div className = "RedDoorContainer">
@@ -16,8 +16,10 @@ function RedDoor( { redRoomPassword } ) {
         alt="reddoor" 
         height="70%"
         />
-      {/* <div hidden>password</div> */}
-      <ClickArea redRoomPassword= { redRoomPassword }/>
+      <ClickArea 
+        redRoomPassword= { redRoomPassword }
+        redRoomPasswordMet = { redRoomPasswordMet }
+        setRedRoomPasswordMet = { setRedRoomPasswordMet }/>
 
     </div>
   )

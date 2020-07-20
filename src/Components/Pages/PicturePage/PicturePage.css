@@ -3,20 +3,24 @@
     margin: 0px;
     padding-top: 0.5em; /* 1em is 16px */
     padding-bottom: 1em;
-    background-color: #005;
+    background-color: black;
     color: white;
 }
 
 .ImageContainer-Pictures {
-    background-color: orange;
-    height: 100vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 500px 250px;
+    align-content: center;
+    height: 100%;
 }
 
 .ImageContainer-Pictures img {
     position: relative;
-    height: 270px;
+    height: 500px;
     margin: 5px;
 }
+
 
 /* .ImageContainer-Pictures .HammsAndStreetSigns {
 }

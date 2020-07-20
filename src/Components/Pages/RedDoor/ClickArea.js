@@ -1,10 +1,8 @@
 import React from "react"
 import { useHistory } from 'react-router-dom';
 
-function ClickArea( { redRoomPassword }){
+function ClickArea( { redRoomPassword, setRedRoomPasswordMet }){
     let history = useHistory();
-
-    console.log(redRoomPassword)
     
     function passwordPrompt() {
         const userPassword = prompt("What is the password?")
@@ -12,6 +10,7 @@ function ClickArea( { redRoomPassword }){
 
         if(userPassword === redRoomPassword){
             alert("Welcome")
+            setRedRoomPasswordMet(true)
             history.push("./RedRoom");
         }
         else{

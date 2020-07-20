@@ -1,11 +1,18 @@
-import React from 'react';
-// import { useHistory } from "react-router-dom";
-// import state from "../../../App.js"
+import React, { Component } from 'react';
 
 import "./RedRoom.css"
 
 
-function RedRoom( {setThrowing, setPartyDate, setNotThrowingText}) {
+function RedRoom( {setThrowing, setPartyDate, setNotThrowingText, redRoomPasswordMet, setRedRoomPasswordMet}) {
+  function componentDidMount(){
+    setRedRoomPasswordMet(false) /* Runs after this component is loaded, makes it so any reloading requires the user to resubmit password */
+  }
+
+  if(!redRoomPasswordMet){
+    return(
+      <p>Turn back, you shouldn't be here</p>
+    )
+  }
 
   var miscText = ""
   var day = ""
@@ -42,6 +49,13 @@ function RedRoom( {setThrowing, setPartyDate, setNotThrowingText}) {
   return(
     <>
       <h1 id="redRoomWelcomeText">Welcome to the Red Room</h1>
+      {/*
+        Some known bugs that can use fixing, the submit buttons collecting the values from the 
+        the text inputs get weird after text was written and the "isthrowing" radio buttons
+        are pressed, due to the rerendering of the page
+        You can make one submit button to take all the data and rerender after that, but it's cool
+        to see the page reload after clicking the buttons
+      */}
       <br/>
       <form className="InputContainer">
 

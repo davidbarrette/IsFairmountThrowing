@@ -30,6 +30,7 @@ function App() {
   const [partyDate, setPartyDate] = useState("MM/DD/YYY")
   const [notThrowingText, setNotThrowingText] = useState("Due to Covid-19, open gatherings are indefinitely postponed")
   const [redRoomPassword, setRedRoomPassword] = useState("a")
+  const [redRoomPasswordMet, setRedRoomPasswordMet] = useState(false)
   // const eventHandler = new EventHandler()
   // const [eventHandler, setEventHander] = useState(eventHandler)  Not used yet, but event handlers are fun
   // eventHandler.handleEventsToListenFor(eventHandler)
@@ -46,7 +47,9 @@ function App() {
           redRoomPassword= { redRoomPassword }
           setThrowing = { setThrowing }
           setPartyDate = { setPartyDate }
-          setNotThrowingText = { setNotThrowingText } /> {/* handles the loading of the page components */}
+          setNotThrowingText = { setNotThrowingText } 
+          redRoomPasswordMet = { redRoomPasswordMet }
+          setRedRoomPasswordMet = { setRedRoomPasswordMet } /> {/* handles the loading of the page components */}
       </BrowserRouter>
 
     </>
