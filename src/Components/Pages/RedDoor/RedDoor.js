@@ -1,41 +1,26 @@
 import React from 'react';
 
 
+
 import "./RedDoor.css"
+import ClickArea from './ClickArea';
 
 
-export default class RedDoor extends React.Component{
-  constructor(props){
-    super(props)
+function RedDoor( { redRoomPassword } ) {
+  console.log("RedDoor " +redRoomPassword)
+  return(
+    <div className = "RedDoorContainer">
+        <img 
+        className ="redDoorImage"
+        src={require("../../../assets/reddoor.jpg")} 
+        alt="reddoor" 
+        height="70%"
+        />
+      {/* <div hidden>password</div> */}
+      <ClickArea redRoomPassword= { redRoomPassword }/>
 
-    this.state = {
-      eventHandler: this.props.eventHandler
-    }
-  }
-  passwordPrompt() {
-    var password = prompt("What is the password?")
-    // if(password != null){
-
-    // }
-
-    // console.log(this.props)
-  }
-  
-  render(){
-      return(
-        <div className = "RedDoorContainer">
-            <img 
-            className ="redDoorImage"
-            src={require("../../../assets/reddoor.jpg")} 
-            alt="reddoor" 
-            height="70%"
-            />
-          <div hidden>password</div>
-          <div 
-          className = "clickArea"
-          onClick={this.passwordPrompt}/>
-
-        </div>
-      )
-    }
+    </div>
+  )
 }
+
+export default RedDoor;

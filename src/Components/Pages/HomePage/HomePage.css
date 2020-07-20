@@ -1,8 +1,9 @@
 
 .WelcomeTextConatiner-Home{
     text-align: center;
-    background-color: #333;
+    background-color: orange;
     margin: 0px;
+    color: white;
 }
     
 .WelcomeTextConatiner-Home .Header{
@@ -16,7 +17,7 @@
 .ImageContainer-Welcome {
     display: flex;
     justify-content: center;
-    background-color: #333;
+    background-color: #005;
     padding-top: 1em;
     height: 100vh;
   }
