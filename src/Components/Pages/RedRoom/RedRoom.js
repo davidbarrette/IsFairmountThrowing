@@ -4,14 +4,14 @@ import "./RedRoom.css"
 
 
 function RedRoom( {setThrowing, setPartyDate, setNotThrowingText, redRoomPasswordMet, setRedRoomPasswordMet}) {
-  function componentDidMount(){
-    setRedRoomPasswordMet(false) /* Runs after this component is loaded, makes it so any reloading requires the user to resubmit password */
-  }
-
   if(!redRoomPasswordMet){
     return(
       <p>Turn back, you shouldn't be here</p>
     )
+  }
+
+  function componentDidMount(){
+    setRedRoomPasswordMet(false) /* Runs after this component is loaded, makes it so any reloading requires the user to resubmit password */
   }
 
   var miscText = ""
@@ -49,6 +49,8 @@ function RedRoom( {setThrowing, setPartyDate, setNotThrowingText, redRoomPasswor
   return(
     <>
       <h1 id="redRoomWelcomeText">Welcome to the Red Room</h1>
+      <p id="redRoomWelcomeText">Do not reload the page, you will have to re-enter the password</p>
+      <p id="redRoomWelcomeText">TroubleShooting Known issues: If you enter text and the submit button doesn't change it, remove a character, re-add it, then submit</p>
       {/*
         Some known bugs that can use fixing, the submit buttons collecting the values from the 
         the text inputs get weird after text was written and the "isthrowing" radio buttons

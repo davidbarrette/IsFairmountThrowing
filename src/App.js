@@ -9,7 +9,6 @@ import NavigationBar from './Components/NavigationBar/NavigationBar.js';
 // import EventHandler from './Components/EventEmitter.js'
 
 import {BrowserRouter } from 'react-router-dom';
-import RedDoor from './Components/Pages/RedDoor/RedDoor.js';
 
 
 
@@ -17,10 +16,10 @@ function App() {
   const [throwing, setThrowing] = useState(true)
   const [partyDate, setPartyDate] = useState("MM/DD")
   const [notThrowingText, setNotThrowingText] = useState("Due to Covid-19, open gatherings are indefinitely postponed")
-  const [redRoomPassword, setRedRoomPassword] = useState("a")
+  const [redRoomPassword, setRedRoomPassword] = useState("Turck417")
   const [redRoomPasswordMet, setRedRoomPasswordMet] = useState(false)
   // const eventHandler = new EventHandler()
-  // const [eventHandler, setEventHander] = useState(eventHandler)  Not used yet, but event handlers are fun
+  // const [eventHandler, setEventHander] = useState(eventHandler)                Not used yet, but event handlers are fun
   // eventHandler.handleEventsToListenFor(eventHandler)
   // eventHandler.logTest("This message should be emitted")
   return(

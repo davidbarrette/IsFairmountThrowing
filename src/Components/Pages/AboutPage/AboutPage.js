@@ -1,23 +1,30 @@
 import React from 'react';
 
-// import './AboutPage.css'
+import './AboutPage.css'
 
 function AboutPage() {
 
       return(
         <>
-            <p>We, two Macalester Computer Science majors created this website in the hopes of 
-                increasing the accessability of this wonderful house to our student body.  No one 
-                who wants to hang out with some kind-hearted people on the weekends should go without.
-                We urge you to enjoy the house as well as the website.
+            <br/>
+            <br/>
+            <p className="AboutText"> Two Macalester Computer Science majors created this website in the hopes of 
+                increasing the accessability of this wonderful house to our student body.
+                We urge you to enjoy the house whenever the website says it is open.
             </p>
-            <p>
-                If any are interested in continuing the development of thiswebsite after we graduate, we 
-                ask that you get in contact with a resident of Fairmount to contact the sites 
-                developers.  We don't want to see this work disappear once we're gone so don't be shy, use 
-                this as an opportunity to practice web development.  But, you should think about finding a 
-                crucial secret hidden within the site before asking, we may ask about it (this is supposed to be fun,
-                if you can't find it, ask and we can help you)
+            <br/>
+            <br/>
+            <p className="AboutText">
+                If you are interested in practicing your web development skills, please ask a Fairmount 
+                resident in order to get a developer's contact information.  We don't want to see 
+                this work disappear once we're gone so don't be shy, use this as an opportunity to practice before graduating.
+            </p>
+            <br/>
+            <br/>
+            <p className="AboutText">
+                Finally, if you're bored, there is a secret on this website that few (at least, only a few should) know about 
+                (with 3 accompanying hidden clues to help you) so feel free to try look around and see what you can find.  
+                It's relatively easy, but if you're new to web development if may seem cool.  Start on this page.
             </p>
 
             <p hidden>
