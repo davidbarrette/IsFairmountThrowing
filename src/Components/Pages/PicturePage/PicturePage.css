@@ -1,0 +1,38 @@
+.WelcomeText-Pictures {
+    text-align: center;
+    margin: 0px;
+    padding-top: 0.5em; /* 1em is 16px */
+    padding-bottom: 1em;
+    background-color: black;
+    color: white;
+}
+
+.ImageContainer-Pictures {
+    background-color: black;
+    align-content: center;
+    height: 75vh;
+}
+
+.ImageContainer-Pictures img {
+    position: relative;
+    height: 300px;
+    margin: 5px;
+}
+
+
+/* .ImageContainer-Pictures .HammsAndStreetSigns {
+}
+
+.ImageContainer-Pictures .FoggyClubLights{
+    left: 60%;
+}
+
+.ImageContainer-Pictures .Lollipop {
+    left: 43% ;
+    z-index: 1;
+}
+
+.ImageContainer-Pictures .MagicWind {
+    top: 600px; 
+    height: 699px;
+}  */

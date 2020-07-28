@@ -1,0 +1,42 @@
+/* For both Component Types */
+.ThrowingContainer {
+  height: 20vh;
+  border: 0px;
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+
+.ThrowingContainer .Meta {
+  margin: 0px;
+}
+
+
+
+/*  For Throwing Component when Throwing */
+.App-throwing {
+  background-color: #4fde2a;
+  height: 100%;
+} 
+
+
+
+
+/* For Throwing Component when not throwing */
+  .App-notThrowing {
+  background-color: #c22727;
+  height: 100%;
+} 
+
+.plagueContainer img {
+  position: absolute;
+  height: 150px;
+}
+.Plague1 {
+  right: 0;
+}
+.Plague2 {
+  left: 0;
+  transform: scaleX(-1);
+}

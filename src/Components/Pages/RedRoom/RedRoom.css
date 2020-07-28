@@ -1,0 +1,13 @@
+.InputContainer input {
+    width: 5vw;
+    border: 2px solid #333;
+    text-align: center;
+}
+
+#miscText {
+    width: 25vw;
+}
+
+#notThrowingTextInput { 
+    width: 50vw;
+}
