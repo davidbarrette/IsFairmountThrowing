@@ -68,3 +68,22 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+# Welcome
+
+## Folders
+
+Actions house actions types, these will be emitted to change the state of the app
+
+Assets are picture used in the app
+
+Components house all the components of the app, should be split into smart and dumb components at some point <br/>
+
+Enhancers and Middleware are used by Redux to have better functionality with the store
+[https://redux.js.org/recipes/configuring-your-store](More Help)
+
+Reducers set the initial state of the app (the initial state could be moved elsewhere and imported in) 
+
+Selectors are convient functions used to grab information from redux's store
