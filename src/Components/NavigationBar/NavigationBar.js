@@ -5,14 +5,16 @@ import './NavigationBar.css'
 import HomePage from '../Pages/HomePage/HomePage.js'
 import PicturePage from '../Pages/PicturePage/PicturePage.js'
 import AboutPage from '../Pages/AboutPage/AboutPage.js'
-import RedDoor from '../Pages/RedDoor/RedDoor.js';
-import RedRoom from '../Pages/RedRoom/RedRoom.js';
+import RedDoor from '../Pages/RedDoor/RedDoor';
+import RedRoom from '../Pages/RedRoom/RedRoom';
+
 
 import { NavLink } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Route, Switch } from 'react-router-dom';
 
-function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThrowingText, redRoomPasswordMet, setRedRoomPasswordMet } ) {
+
+function NavigationBar() {
     
     // const pages = [
     //     {
@@ -34,7 +36,11 @@ function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThro
     //       cssClass: "NavBarItem NavItemRedDoor"
     //     },
     //   ]
-
+    // const renderPages = pages.map((page)  => {
+    //     return (<NavLink
+    //         className={ page.cssClass }
+    //         to={ page.route }> {page.name} </NavLink>)
+    // })
 
     return(
         <>
@@ -48,11 +54,7 @@ function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThro
             </Navbar>
             {/* <Navbar className = "Navigation-bar">    this is the better way to do it, more dynamic
                 <Nav>
-                    {pages.map((page) => {
-                        return (<NavLink
-                                className={ page.cssClass }
-                                to={ page.route }> {page.name} </NavLink>)
-                    })}
+                    { renderPages }
                 </Nav>
             </Navbar> */}
 
@@ -60,21 +62,8 @@ function NavigationBar( { redRoomPassword, setThrowing, setPartyDate, setNotThro
                 <Route path='/' component = {HomePage} exact/>
                 <Route path='/PicturePage' component = {PicturePage} exact/>
                 <Route path='/About' component = {AboutPage} exact/>
-
-                <Route path='/RedDoor' render={() => (
-                        <RedDoor 
-                        redRoomPassword = { redRoomPassword }
-                        setRedRoomPasswordMet = { setRedRoomPasswordMet }/>
-                    )} exact/>
-
-                <Route path='/RedRoom' render={() => (
-                        <RedRoom 
-                            setThrowing = { setThrowing }
-                            setPartyDate = { setPartyDate }
-                            setNotThrowingText = { setNotThrowingText }
-                            redRoomPasswordMet = { redRoomPasswordMet }
-                            setRedRoomPasswordMet = { setRedRoomPasswordMet} />
-                    )} exact/>
+                <Route path='/RedDoor' component = {RedDoor} exact/>
+                <Route path='/RedRoom' component = {RedRoom} exact/>  {/* Should load this when URL changes, in RedDoor component in password check*/}
                 
             </Switch>
         </>
