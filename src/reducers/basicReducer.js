@@ -2,7 +2,7 @@ const initialState = {
     throwing: false,
     partyDate: "MM/DD",
     notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed",
-    redRoomPassword: "a",
+    redRoomPassword: "Turck417",
     redRoomPasswordChecked: false
 }
 
@@ -33,6 +33,9 @@ const basicReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 redRoomPasswordChecked: action.payload
             })
+
+        case 'APP_TO_INITIAL_STATE':
+            return Object.assign({}, state, initialState)
         
         default:
             return state

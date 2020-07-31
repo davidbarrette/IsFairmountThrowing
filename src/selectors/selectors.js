@@ -1,10 +1,3 @@
-//For App
-export const selectAppData = (state) => {
-    return ({
-        redRoomPasswordChecked: state.redRoomPasswordChecked
-    })
-}
-
 //For Throwing
 export const selectThrowingData = (state) => {
     return ({
@@ -24,6 +17,6 @@ export const selectRedDoorData = (state) => {
 export const selectRedRoomData = (state) => {
     return ({
         redRoomPasswordChecked: state.redRoomPasswordChecked,
-        notThrowingText: state.notThrowingText
+        throwingStatus: state.throwing
     })
 }

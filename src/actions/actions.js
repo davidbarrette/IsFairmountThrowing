@@ -25,3 +25,9 @@ export const changeRedRoomPasswordChecked = ( bool ) => {
         payload: bool
     }
 }
+
+export const appToInitialState = () => {
+    return {
+        type: 'APP_TO_INITIAL_STATE'
+    }
+}

@@ -20,7 +20,6 @@ class RedDoor extends React.Component{  //Needs to be a class component to get s
     this.passwordPrompt = this.passwordPrompt.bind(this)
   }
 
-
   passwordPrompt() {
       const userPassword = prompt("What is the password?")
       

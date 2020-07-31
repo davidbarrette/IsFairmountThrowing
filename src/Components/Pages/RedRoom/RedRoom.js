@@ -1,9 +1,12 @@
 import React from 'react';
 
-
 import "./RedRoom.css"
 
-import { changePartyDate, changeThrowingStatus, changeNotThrowingText, changeRedRoomPasswordChecked } from '../../../actions/actions';
+import { changePartyDate, 
+          changeThrowingStatus, 
+          changeNotThrowingText, 
+          changeRedRoomPasswordChecked,
+          appToInitialState } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
@@ -18,8 +21,10 @@ class RedRoom extends React.Component {
   constructor(props) {
     super(props)
     this.store = props
-    this.redRoomPasswordChecked = props.redRoomData.redRoomPasswordChecked
-    this.notThrowingText = props.redRoomData.notThrowingText
+    this.state = props.redRoomData
+
+    this.throwingStatus = this.state.throwing
+    this.redRoomPasswordChecked = this.state.redRoomPasswordChecked
   }
 
   //When the component is added to the DOM tree, this is run
@@ -43,11 +48,14 @@ class RedRoom extends React.Component {
     event.preventDefault(); //stops rerender
     var newPartyDate = "MM/DD"
 
-    if(miscText !== ""){
-      newPartyDate = miscText + " - " + month + "/" + day;
+    if(miscText !== "" && month === "" && day === ""){
+      newPartyDate = miscText
+    }
+    else if (miscText !== ""){
+      newPartyDate = miscText + " - " + month + "/" + day
     }
     else{
-      newPartyDate = month + "/" + day;
+      newPartyDate = month + "/" + day
     }
     this.store.dispatch(changePartyDate( newPartyDate ))
   }
@@ -56,6 +64,12 @@ class RedRoom extends React.Component {
   inputNewNotThrowingText( event ) {
     event.preventDefault()
     this.store.dispatch(changeNotThrowingText( notThrowingText ))
+  }
+
+  //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
+  resetAppToInitialState ( event ) {
+    event.preventDefault()
+    this.store.dispatch(appToInitialState())
   }
 
   render(){
@@ -137,6 +151,24 @@ class RedRoom extends React.Component {
               onChange = {(event) => {notThrowingText = event.target.value}} />
 
             <button onClick ={(event) => { this.inputNewNotThrowingText(event) }}> Submit </button>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <div className="appToInitialStateContainer">
+              <button onClick ={(event) => { this.resetAppToInitialState(event) }}> Initial State </button>
+              <p>Clicking this button (necessary for password change) will take the state of the app to:</p>
+                <ol>
+                  <li>throwing: "false"</li>
+                  <li>partyDate: "MM/DD"</li>
+                  <li>notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed</li>
+                  <li>redRoomPassword: "Turck417"</li>
+                  <li>redRoomPasswordChecked: "false"" (Needed for RedRoom security)</li>
+                </ol>
+                <p><b>^ If you're coding and if you change the initial state, change the hard code here ^</b></p>
+            </div>
+
           </form>
         </>
       )

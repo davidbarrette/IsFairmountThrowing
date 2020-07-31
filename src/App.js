@@ -3,12 +3,9 @@
 
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import Throwing from './Components/Throwing/Throwing.js'
 import NavigationBar from './Components/NavigationBar/NavigationBar.js';
-
-import { selectAppData } from './selectors/selectors.js'
 
 /**
  * in order to know whats going on with the state of the app, and you have little experience with Redux (store, actions, reducers, selectors, etc.)
@@ -16,12 +13,6 @@ import { selectAppData } from './selectors/selectors.js'
  */
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = props.appData
-    
-    console.log(this.state)
-  }
 
   render(){
     return(
@@ -34,9 +25,4 @@ class App extends React.Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-    appData: selectAppData(state)
-})
-
-export default connect(mapStateToProps)(App)
+export default (App)
