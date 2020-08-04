@@ -2,14 +2,15 @@ import React from 'react';
 
 import "./RedRoom.css"
 
-import { changePartyDate, 
-          changeThrowingStatus, 
+import { changePartyDate,
           changeNotThrowingText, 
           changeRedRoomPasswordChecked,
           appToInitialState } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
+import axios from 'axios'
+const config = require("../../../config.json")
 
 var miscText = ""
 var day = ""
@@ -34,12 +35,30 @@ class RedRoom extends React.Component {
   }
 
   //Change throwing statues ----------------------------------------------------------------------------
-  changeThrowing( str ) {
+  async changeThrowing( str ) {
     if(str === 'true') { //converts string to boolean
-      this.store.dispatch(changeThrowingStatus( true ))
+      const params = {
+        dataName: config.databaseName.THROWING_STATUS,
+        payload: true
+      }
+      try {
+        console.log(`${config.api.invokeURL}/RedRoom`)
+        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+      } catch (err) {
+        console.log(`Error in changeThrowingState: ${err}`)
+      }
+      //NEED TO PULL THE REQUEST AGAIN
     }
     else{
-      this.store.dispatch(changeThrowingStatus( false ))
+      try {
+        const params = {
+          dataName: config.database.dbName_THROWING_STATUS,
+          payload: false
+        }
+        await axios.post(`${config.api.invokeAPI}/throwingStatus`, params)
+      } catch (err) {
+        console.log(`Error in chageThrowingState: ${err}`)
+      }
     }
   }
 

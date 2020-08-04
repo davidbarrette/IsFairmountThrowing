@@ -13,8 +13,6 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 import basicReducer from './reducers/basicReducer'
 
 
-
-
 //This is to let the app's State persist throw a refresh
 //https://www.youtube.com/watch?v=J3aJNTqeXMw
 const persistConfig = {

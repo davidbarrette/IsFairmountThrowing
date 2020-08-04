@@ -1,0 +1,10 @@
+{
+    "api": {
+        "invokeURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/testStage"
+    },
+    "databaseName": {
+        "THROWING_STATUS": "throwingStatus",
+        "PARTY_DATE": "partyDate",
+        "NOT_THROWING_TEXT": "notThrowingText"
+    }
+}

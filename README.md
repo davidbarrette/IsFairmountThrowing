@@ -87,3 +87,7 @@ Enhancers and Middleware are used by Redux to have better functionality with the
 Reducers set the initial state of the app (the initial state could be moved elsewhere and imported in) 
 
 Selectors are convient functions used to grab information from redux's store
+
+
+## AWS
+ We use AWS to save the state of the app, this allows for the actions of one user to change the state of the app for others
