@@ -16,7 +16,7 @@ const config = require("./config.json")
 /**
  * in order to know whats going on with the state of the app, and you have little experience with Redux (store, actions, reducers, selectors, etc.)
  * contact David Barrette, he will help to explain the process, as stated above
- * 
+ *
  * A security thing: should put redRoomPassword in Database so it can't be found on GitHub, isn't super important
  * b/c this isn't a big app, just best practice
  */
@@ -34,7 +34,7 @@ class App extends React.Component {
     //TESTsva
     try {
       const response = await axios.get(`${config.api.invokeURL}/${dataName}`)
-      //THIS SWITCH SHOULD BE TURNED INTO ONE FUNCTION BY CHANGING ACTIONS b/c in the response we have an 'id' that is the same as the 'dbName_...'s consts 
+      //THIS SWITCH SHOULD BE TURNED INTO ONE FUNCTION BY CHANGING ACTIONS b/c in the response we have an 'id' that is the same as the 'dbName_...'s consts
       switch (dataName){
         case config.databaseName.THROWING_STATUS:
           this.store.dispatch(changeThrowingStatus(response.data.info))
@@ -58,8 +58,8 @@ class App extends React.Component {
   }
   componentDidMount(){
     const appDataInDDB = [
-      config.databaseName.THROWING_STATUS, 
-      config.databaseName.dbName_PARTY_DATE, 
+      config.databaseName.THROWING_STATUS,
+      config.databaseName.dbName_PARTY_DATE,
       config.databaseName.dbName_NOT_THROWING_TEXT
     ]
     appDataInDDB.map(dataName => {
@@ -77,12 +77,8 @@ class App extends React.Component {
     );
   }
 }
-<<<<<<< HEAD
 const mapStateToProps = state => ({
   state
 })
 
 export default connect(mapStateToProps)(App)
-=======
-export default (App)
->>>>>>> refs/remotes/origin/master
