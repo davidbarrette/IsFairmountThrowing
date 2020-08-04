@@ -77,8 +77,12 @@ class App extends React.Component {
     );
   }
 }
+<<<<<<< HEAD
 const mapStateToProps = state => ({
   state
 })
 
 export default connect(mapStateToProps)(App)
+=======
+export default (App)
+>>>>>>> refs/remotes/origin/master
