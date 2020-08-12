@@ -18,7 +18,7 @@ import NavigationBar from './Components/NavigationBar/NavigationBar.js';
 /**
  * in order to know whats going on with the state of the app, and you have little experience with Redux (store, actions, reducers, selectors, etc.)
  * contact David Barrette, he will help to explain the process, as stated above
- * 
+ *
  * A security thing: should put redRoomPassword in Database so it can't be found on GitHub, isn't super important
  * b/c this isn't a big app, just best practice
  * 
@@ -38,6 +38,7 @@ class App extends React.Component {
     super(props)
     this.store = props
   }
+
 
   componentDidMount(){
     getUpdatedAppState(this.store)
