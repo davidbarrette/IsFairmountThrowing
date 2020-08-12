@@ -10,7 +10,11 @@ import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
 import axios from 'axios'
-const config = require("../../../config.json")
+import config from '../../../config.json'
+
+import { getUpdatedAppState } from '../../../utils.js'
+
+
 
 var miscText = ""
 var day = ""
@@ -38,35 +42,35 @@ class RedRoom extends React.Component {
   async changeThrowing( str ) {
     if(str === 'true') { //converts string to boolean
       const params = {
-        dataName: config.databaseName.THROWING_STATUS,
-        payload: true
+        dataName: config.databaseNames.THROWING_STATUS,
+        updatedInfo: true
       }
       try {
-        console.log(`${config.api.invokeURL}/RedRoom`)
         await axios.put(`${config.api.invokeURL}/RedRoom`, params)
       } catch (err) {
         console.log(`Error in changeThrowingState: ${err}`)
       }
-      //NEED TO PULL THE REQUEST AGAIN
     }
-    else{
+    else {
+      const params = {
+        dataName: config.databaseNames.THROWING_STATUS,
+        updatedInfo: false
+      }
       try {
-        const params = {
-          dataName: config.database.dbName_THROWING_STATUS,
-          payload: false
-        }
-        await axios.post(`${config.api.invokeAPI}/throwingStatus`, params)
+        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
       } catch (err) {
-        console.log(`Error in chageThrowingState: ${err}`)
+        console.log(`Error in reaching the database to change the throwing status : ${err}`)
       }
     }
+    getUpdatedAppState(this.store)
   }
 
   //Change the party date -----------------------------------------------------------------------------------
-  updatePartyDate( event ) {
+  async updatePartyDate( event ) {
     event.preventDefault(); //stops rerender
     var newPartyDate = "MM/DD"
 
+    //Build the new party date string
     if(miscText !== "" && month === "" && day === ""){
       newPartyDate = miscText
     }
@@ -76,19 +80,60 @@ class RedRoom extends React.Component {
     else{
       newPartyDate = month + "/" + day
     }
-    this.store.dispatch(changePartyDate( newPartyDate ))
+
+    //Set the database partyDate
+    const params = {
+      dataName: config.databaseNames.PARTY_DATE,
+      updatedInfo: newPartyDate
+    }
+    try {
+      console.log(params)
+      await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+      getUpdatedAppState(this.store)
+    } catch (err) {
+      console.log(`Error in reaching the database to change the party date: ${err}`)
+    }
   }
 
   //Change not throwing text -----------------------------------------------------------------------------
-  inputNewNotThrowingText( event ) {
+  async inputNewNotThrowingText( event ) {
     event.preventDefault()
-    this.store.dispatch(changeNotThrowingText( notThrowingText ))
+    
+    //Set the database notThrowingText
+    const params = {
+      dataName: config.databaseNames.NOT_THROWING_TEXT,
+      updatedInfo: notThrowingText
+    }
+    try {
+      console.log(params)
+      await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+      getUpdatedAppState(this.store)
+    } catch (err) {
+      console.log(`Error in reaching the database to change the not throwing text: ${err}`)
+    }
   }
 
   //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
-  resetAppToInitialState ( event ) {
+  async resetAppToInitialState ( event ) {
     event.preventDefault()
-    this.store.dispatch(appToInitialState())
+
+    config.databaseNamesArray.map(async (dataName) => {
+      const params = {
+        dataName: dataName,
+        updatedInfo: config.appInitialState[dataName]
+      }
+      console.log(params)
+      try {
+        console.log(params)
+        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+        getUpdatedAppState(this.store)
+      } catch (err) {
+        console.log(`Error in reaching the database to change the not throwing text: ${err}`)
+      }
+    })
+
+    document.getElementById("redRoomForm").reset()
+
   }
 
   render(){
@@ -110,9 +155,10 @@ class RedRoom extends React.Component {
             are pressed, due to the rerendering of the page
             You can make one submit button to take all the data and rerender after that, but it's cool
             to see the page reload after clicking the buttons
+            Also, on the initialState load button, the values in the text fields should be reset to nothing
           */}
           <br/>
-          <form className="InputContainer">
+          <form className="InputContainer" id = "redRoomForm">
 
           <p>Are we throwing?</p>
             <input type ="radio" 

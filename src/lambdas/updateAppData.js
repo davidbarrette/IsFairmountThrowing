@@ -1,34 +1,29 @@
 'use strict';
 const AWS = require('aws-sdk');
+const documentClient = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event, context) => {
-  const documentClient = new AWS.DynamoDB.DocumentClient();
-
   let responseBody = "";
   let statusCode = 0;
+  console.log(`Event Body: ${event.body}`)
   
-  // const { dataName, payload } = JSON.parse(event.body); //IDK why it doesn't work ("Unexpected token o in JSON at position 1"")
-  // const dataName = event.body.dataName
-  // const payload = event.body.payload
-
-  const params = {
+  const { dataName, updatedInfo } = JSON.parse(event.body);
+  
+   var params = {
     TableName: "isThrowingTable",
-    Key: {
-      id: "throwingStatus",
-    },
-    UpdateExpression: "set info = :n",
-    ExpressionAttributeValues: {
-        ":n": "true"
-    },
-    ReturnValues: "UPDATED_NEW"
+    Item: {
+      id: dataName,
+      info: updatedInfo
+    }
   };
+  console.log(JSON.stringify(params))
 
   try {
-    const data = await documentClient.update(params).promise();
+    const data = await documentClient.put(params).promise();
     responseBody = JSON.stringify(data);
     statusCode = 201;
   } catch(err) {
-    responseBody = `Unable to put product: ${err}`;
+    responseBody = `ERROR: ${err}----- Event.body ${event.body}----- Params ${JSON.stringify(params)}----- dataName: ${dataName} updatedInfo ${updatedInfo}`;
     statusCode = 403;
   }
 

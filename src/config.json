@@ -2,9 +2,21 @@
     "api": {
         "invokeURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/testStage"
     },
-    "databaseName": {
+    "databaseNames": {
         "THROWING_STATUS": "throwingStatus",
         "PARTY_DATE": "partyDate",
         "NOT_THROWING_TEXT": "notThrowingText"
+    },
+    "databaseNamesArray": [
+        "throwingStatus",
+        "partyDate",
+        "notThrowingText"
+        ],
+    "appInitialState": {
+        "throwingStatus": false,
+        "partyDate": "MM/DD",
+        "notThrowingText": "Due to Covid-19, open gatherings are indefinitely postponed",
+        "redRoomPassword": "Turck417",
+        "redRoomPasswordChecked": false
     }
 }

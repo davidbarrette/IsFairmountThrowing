@@ -1,18 +1,12 @@
-const initialState = {
-    throwing: false,
-    partyDate: "MM/DD",
-    notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed",
-    redRoomPassword: "Turck417",
-    redRoomPasswordChecked: false
-}
-
+import config from '../config.json'
 
 // Manipulates the state object in redux
 // https://www.youtube.com/watch?time_continue=3&v=SGOFxK-28ns&feature=emb_logo
 
 //This runs when the store dispatches, the action runs, returning the action
 //object that is passed into the reducer case
-const basicReducer = (state = initialState, action) => {
+//THIS HAS BEEN MADE OBSOLETE DUE TO ALL THE DATA BEING IN THE DATABASE --> This would be needed for data changing a single user's app state
+const basicReducer = (state = config.initialState, action) => {
     switch (action.type) {                
         case 'CHANGE_THROWING_STATUS':
             return Object.assign({}, state, {
@@ -35,7 +29,7 @@ const basicReducer = (state = initialState, action) => {
             })
 
         case 'APP_TO_INITIAL_STATE':
-            return Object.assign({}, state, initialState)
+            return Object.assign({}, state, config.initialState)
         
         default:
             return state
