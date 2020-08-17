@@ -1,7 +1,23 @@
 {
+    "actionType": {
+        "UPDATE_APP_STATE_FULL": "UPDATE_APP_STATE_FULL",
+        "CHANGE_THROWING_STATUS": "CHANGE_THROWING_STATUS",
+        "CHANGE_PARTY_DATE": "CHANGE_PARTY_DATE",
+        "CHANGE_NOT_THROWING_TEXT": "CHANGE_NOT_THROWING_TEXT",
+        "CHANGE_RED_ROOM_PASSWORD_CHECKED": "CHANGE_RED_ROOM_PASSWORD_CHECKED",
+        "APP_TO_INITIAL_STATE": "APP_TO_INITIAL_STATE"
+
+    },
     "api": {
         "testURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/testStage",
-        "productionURL"
+        "productionURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/production"
+    },
+    "appInitialState": {
+        "throwingStatus": false,
+        "partyDate": "MM/DD",
+        "notThrowingText": "Due to Covid-19, open gatherings are indefinitely postponed",
+        "redRoomPassword": "Turck417",
+        "redRoomPasswordChecked": false
     },
     "databaseNames": {
         "THROWING_STATUS": "throwingStatus",
@@ -12,12 +28,5 @@
         "throwingStatus",
         "partyDate",
         "notThrowingText"
-        ],
-    "appInitialState": {
-        "throwingStatus": false,
-        "partyDate": "MM/DD",
-        "notThrowingText": "Due to Covid-19, open gatherings are indefinitely postponed",
-        "redRoomPassword": "Turck417",
-        "redRoomPasswordChecked": false
-    }
+    ]
 }
