@@ -1,6 +1,7 @@
 {
     "api": {
-        "invokeURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/testStage"
+        "testURL": "https://fvpgcx2te8.execute-api.us-east-2.amazonaws.com/testStage",
+        "productionURL"
     },
     "databaseNames": {
         "THROWING_STATUS": "throwingStatus",

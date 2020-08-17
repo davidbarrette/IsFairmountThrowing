@@ -14,6 +14,7 @@ import config from '../../../config.json'
 
 import { getUpdatedAppState } from '../../../utils.js'
 
+const API_URL = `${config.api.testURL}/RedRoom`
 
 
 var miscText = ""
@@ -46,7 +47,7 @@ class RedRoom extends React.Component {
         updatedInfo: true
       }
       try {
-        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+        await axios.put(API_URL, params)
       } catch (err) {
         console.log(`Error in changeThrowingState: ${err}`)
       }
@@ -57,7 +58,7 @@ class RedRoom extends React.Component {
         updatedInfo: false
       }
       try {
-        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+        await axios.put(API_URL, params)
       } catch (err) {
         console.log(`Error in reaching the database to change the throwing status : ${err}`)
       }
@@ -88,7 +89,7 @@ class RedRoom extends React.Component {
     }
     try {
       console.log(params)
-      await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+      await axios.put(API_URL, params)
       getUpdatedAppState(this.store)
     } catch (err) {
       console.log(`Error in reaching the database to change the party date: ${err}`)
@@ -106,7 +107,7 @@ class RedRoom extends React.Component {
     }
     try {
       console.log(params)
-      await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+      await axios.put(API_URL, params)
       getUpdatedAppState(this.store)
     } catch (err) {
       console.log(`Error in reaching the database to change the not throwing text: ${err}`)
@@ -125,7 +126,7 @@ class RedRoom extends React.Component {
       console.log(params)
       try {
         console.log(params)
-        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+        await axios.put(API_URL, params)
         getUpdatedAppState(this.store)
       } catch (err) {
         console.log(`Error in reaching the database to change the not throwing text: ${err}`)
