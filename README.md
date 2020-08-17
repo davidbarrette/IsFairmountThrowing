@@ -97,3 +97,4 @@ UPDATE THE README!!!!!!!!!!!!!!!!!!!</br>
 Remove password from codebase and put into database</br>
 Write more tests </br>
 Practice Smart and Dumb Components (while doing this, make sure to fix the testing suite)</br>
+Config should be alphabetized</br>

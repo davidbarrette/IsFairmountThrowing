@@ -5,7 +5,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getUpdatedAppState } from './utils.js'
+import { getFullUpdatedAppState } from './utils.js'
 
 import Throwing from './Components/Throwing/Throwing.js'
 import NavigationBar from './Components/NavigationBar/NavigationBar.js';
@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    getUpdatedAppState(this.store)
+    getFullUpdatedAppState(this.store)
   }
 
   render(){
