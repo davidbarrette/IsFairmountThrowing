@@ -39,7 +39,6 @@ class App extends React.Component {
     this.store = props
   }
 
-
   componentDidMount(){
     getUpdatedAppState(this.store)
   }

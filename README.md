@@ -91,3 +91,11 @@ Selectors are convient functions used to grab information from redux's store
 
 ## AWS
  We use AWS to save the state of the app, this allows for the actions of one user to change the state of the app for others
+
+## ToDo
+UPDATE THE README!!!!!!!!!!!!!!!!!!!</br>
+Remove password from codebase and put into database</br>
+Write more tests </br>
+Practice Smart and Dumb Components (while doing this, make sure to fix the testing suite)</br>
+Change CSS for Mobile </br>
+services folder to put API calls in to abstract away</br>
