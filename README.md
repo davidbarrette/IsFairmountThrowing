@@ -93,8 +93,17 @@ Selectors are convient functions used to grab information from redux's store
  We use AWS to save the state of the app, this allows for the actions of one user to change the state of the app for others
 
 ## ToDo
-UPDATE THE README!!!!!!!!!!!!!!!!!!!</br>
+UPDATE THE README ABOVE!!!!!!!!!!!!!!!!!!!</br>
 Remove password from codebase and put into database</br>
 Write more tests </br>
 Practice Smart and Dumb Components (while doing this, make sure to fix the testing suite)</br>
 Config should be alphabetized</br>
+Change CSS for Mobile </br>
+services folder to put API calls in to abstract away (not in utils.js)</br>
+Make loading screen when fetching from API </br>
+There should be some cleanup (see make Services folder above), it won't be nice but right now setting the state and api calls are thrown around willy-nilly, should be a designated place for this</br>
+Make the password check a modal</br>
+Fix Double clikc toInitialStateButton</br>
+LOTS OF CHANGES IN REDROOM, make sure methods call the appInitialState in .config</br>
+Add more tests after cleanup</br>
+Add coverage to "scripts -> test -> "react-scripts test ["--coverage"]"</br>

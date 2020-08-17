@@ -2,14 +2,13 @@ import React from 'react';
 
 import "./RedRoom.css"
 
-import { changeRedRoomPasswordChecked } from '../../../actions/actions';
+import { changeRedRoomPasswordChecked, updateAppStateFull } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
-import axios from 'axios'
+import {putRedRoom} from '../../../services/redRoomAPICalls.js'
+import {getFullUpdatedAppState} from '../../../utils.js'
 import config from '../../../config.json'
-
-import { getFullUpdatedAppState } from '../../../utils.js'
 
 const API_URL = `${config.api.testURL}/RedRoom`
 
@@ -38,29 +37,12 @@ class RedRoom extends React.Component {
 
   //Change throwing statues ----------------------------------------------------------------------------
   async changeThrowing( str ) {
-    if(str === 'true') { //converts string to boolean
-      const params = {
+    await putRedRoom({
         dataName: config.databaseNames.THROWING_STATUS,
-        updatedInfo: true
-      }
-      try {
-        await axios.put(API_URL, params)
-      } catch (err) {
-        console.log(`Error in changeThrowingState: ${err}`)
-      }
-    }
-    else {
-      const params = {
-        dataName: config.databaseNames.THROWING_STATUS,
-        updatedInfo: false
-      }
-      try {
-        await axios.put(API_URL, params)
-      } catch (err) {
-        console.log(`Error in reaching the database to change the throwing status : ${err}`)
-      }
-    }
-    getFullUpdatedAppState(this.store)
+        updatedInfo: (str === 'true')
+      })
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Change the party date -----------------------------------------------------------------------------------
@@ -80,16 +62,12 @@ class RedRoom extends React.Component {
     }
 
     //Set the database partyDate
-    const params = {
+    await putRedRoom({
       dataName: config.databaseNames.PARTY_DATE,
       updatedInfo: newPartyDate
-    }
-    try {
-      await axios.put(API_URL, params)
-      getFullUpdatedAppState(this.store)
-    } catch (err) {
-      console.log(`Error in reaching the database to change the party date: ${err}`)
-    }
+    })
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Change not throwing text -----------------------------------------------------------------------------
@@ -97,16 +75,12 @@ class RedRoom extends React.Component {
     event.preventDefault()
     
     //Set the database notThrowingText
-    const params = {
+    await putRedRoom({
       dataName: config.databaseNames.NOT_THROWING_TEXT,
       updatedInfo: notThrowingText
-    }
-    try {
-      await axios.put(API_URL, params)
-      getFullUpdatedAppState(this.store)
-    } catch (err) {
-      console.log(`Error in reaching the database to change the not throwing text: ${err}`)
-    }
+    })
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
@@ -114,20 +88,14 @@ class RedRoom extends React.Component {
     event.preventDefault()
 
     config.databaseNamesArray.map(async (dataName) => {
-      const params = {
+      await putRedRoom({
         dataName: dataName,
         updatedInfo: config.appInitialState[dataName]
-      }
-      try {
-        await axios.put(API_URL, params)
-        getFullUpdatedAppState(this.store)
-      } catch (err) {
-        console.log(`Error in reaching the database to change the not throwing text: ${err}`)
-      }
+      })
     })
-
-    document.getElementById("redRoomForm").reset()
-
+  const data = await getFullUpdatedAppState()
+  this.store.dispatch(updateAppStateFull(data))
+  document.getElementById("redRoomForm").reset()
   }
 
   render(){
@@ -219,11 +187,11 @@ class RedRoom extends React.Component {
               <button onClick ={(event) => { this.resetAppToInitialState(event) }}> Initial State </button>
               <p>Clicking this button (necessary for password change) will take the state of the app to:</p>
                 <ol>
-                  <li>throwing: "false"</li>
-                  <li>partyDate: "MM/DD"</li>
-                  <li>notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed</li>
-                  <li>redRoomPassword: "Turck417"</li>
-                  <li>redRoomPasswordChecked: "false"" (Needed for RedRoom security)</li>
+                  <li>throwing: {(config.appInitialState.throwingStatus) ? 'true' : 'false'}</li>
+                  <li>partyDate: {config.appInitialState.partyDate}</li>
+                  <li>notThrowingText: {config.appInitialState.notThrowingText}</li>
+                  <li>redRoomPassword: {config.appInitialState.redRoomPassword}</li>
+                  <li>redRoomPasswordChecked: {(config.appInitialState.redRoomPasswordChecked) ? 'true' : 'false'} (should be false for RedRoom security)</li>
                 </ol>
                 <p><b>^ If you're coding and if you change the initial state, change the hard code here ^</b></p>
             </div>
