@@ -98,3 +98,5 @@ Remove password from codebase and put into database</br>
 Write more tests </br>
 Practice Smart and Dumb Components (while doing this, make sure to fix the testing suite)</br>
 Config should be alphabetized</br>
+Change CSS for Mobile </br>
+services folder to put API calls in to abstract away</br>

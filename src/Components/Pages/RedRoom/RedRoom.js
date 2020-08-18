@@ -6,7 +6,7 @@ import { changeRedRoomPasswordChecked } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
-import axios from 'axios'
+import {putRedRoom} from '../../../services/redRoomAPICalls.js'
 import config from '../../../config.json'
 
 import { getFullUpdatedAppState } from '../../../utils.js'
@@ -38,29 +38,12 @@ class RedRoom extends React.Component {
 
   //Change throwing statues ----------------------------------------------------------------------------
   async changeThrowing( str ) {
-    if(str === 'true') { //converts string to boolean
-      const params = {
+    await putRedRoom({
         dataName: config.databaseNames.THROWING_STATUS,
-        updatedInfo: true
-      }
-      try {
-        await axios.put(API_URL, params)
-      } catch (err) {
-        console.log(`Error in changeThrowingState: ${err}`)
-      }
-    }
-    else {
-      const params = {
-        dataName: config.databaseNames.THROWING_STATUS,
-        updatedInfo: false
-      }
-      try {
-        await axios.put(API_URL, params)
-      } catch (err) {
-        console.log(`Error in reaching the database to change the throwing status : ${err}`)
-      }
-    }
-    getFullUpdatedAppState(this.store)
+        updatedInfo: (str === 'true')
+      })
+
+    getUpdatedAppState(this.store)
   }
 
   //Change the party date -----------------------------------------------------------------------------------
@@ -80,16 +63,11 @@ class RedRoom extends React.Component {
     }
 
     //Set the database partyDate
-    const params = {
+    await putRedRoom({
       dataName: config.databaseNames.PARTY_DATE,
       updatedInfo: newPartyDate
-    }
-    try {
-      await axios.put(API_URL, params)
-      getFullUpdatedAppState(this.store)
-    } catch (err) {
-      console.log(`Error in reaching the database to change the party date: ${err}`)
-    }
+    })
+    getUpdatedAppState(this.store)
   }
 
   //Change not throwing text -----------------------------------------------------------------------------
@@ -97,16 +75,11 @@ class RedRoom extends React.Component {
     event.preventDefault()
     
     //Set the database notThrowingText
-    const params = {
+    await putRedRoom({
       dataName: config.databaseNames.NOT_THROWING_TEXT,
       updatedInfo: notThrowingText
-    }
-    try {
-      await axios.put(API_URL, params)
-      getFullUpdatedAppState(this.store)
-    } catch (err) {
-      console.log(`Error in reaching the database to change the not throwing text: ${err}`)
-    }
+    })
+    getUpdatedAppState(this.store)
   }
 
   //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
@@ -114,20 +87,14 @@ class RedRoom extends React.Component {
     event.preventDefault()
 
     config.databaseNamesArray.map(async (dataName) => {
-      const params = {
+      await putRedRoom({
         dataName: dataName,
         updatedInfo: config.appInitialState[dataName]
-      }
-      try {
-        await axios.put(API_URL, params)
-        getFullUpdatedAppState(this.store)
-      } catch (err) {
-        console.log(`Error in reaching the database to change the not throwing text: ${err}`)
-      }
+      })
     })
 
     document.getElementById("redRoomForm").reset()
-
+    getUpdatedAppState(this.store)
   }
 
   render(){
