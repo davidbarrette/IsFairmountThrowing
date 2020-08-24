@@ -5,7 +5,7 @@ import axios from 'axios'
 import config from './config.json'
 
 
-export async function getFullUpdatedAppState( store ){  
-  const response = await axios.get(`${config.api.productionURL}`);
-  store.dispatch(updateAppStateFull(response.data.body))
+export async function getFullUpdatedAppState(){  
+  const response =  await axios.get(`${config.api.productionURL}`);
+  return response.data.body
   }

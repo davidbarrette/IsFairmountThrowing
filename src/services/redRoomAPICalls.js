@@ -4,8 +4,8 @@ import config from '../config.json'
 //'RedRoom' PUT
 export async function putRedRoom(params){
     try {
-        await axios.put(`${config.api.invokeURL}/RedRoom`, params)
+        await axios.put(`${config.api.productionURL}/RedRoom`, params)
       } catch (err) {
-        console.log(`Error in changeThrowingState: ${err}`)
+        console.log(`Error in putRedRoom: ${err}`)
       }
 }
