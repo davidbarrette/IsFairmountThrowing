@@ -41,13 +41,8 @@ class RedRoom extends React.Component {
         dataName: config.databaseNames.THROWING_STATUS,
         updatedInfo: (str === 'true')
       })
-<<<<<<< HEAD
-
-    getUpdatedAppState(this.store)
-=======
     const data = await getFullUpdatedAppState()
     this.store.dispatch(updateAppStateFull(data))
->>>>>>> b1de29b... Added practice tests in order to play with Jest and cleaned up a bit
   }
 
   //Change the party date -----------------------------------------------------------------------------------
@@ -71,12 +66,8 @@ class RedRoom extends React.Component {
       dataName: config.databaseNames.PARTY_DATE,
       updatedInfo: newPartyDate
     })
-<<<<<<< HEAD
-    getUpdatedAppState(this.store)
-=======
     const data = await getFullUpdatedAppState()
     this.store.dispatch(updateAppStateFull(data))
->>>>>>> b1de29b... Added practice tests in order to play with Jest and cleaned up a bit
   }
 
   //Change not throwing text -----------------------------------------------------------------------------
@@ -88,12 +79,8 @@ class RedRoom extends React.Component {
       dataName: config.databaseNames.NOT_THROWING_TEXT,
       updatedInfo: notThrowingText
     })
-<<<<<<< HEAD
-    getUpdatedAppState(this.store)
-=======
     const data = await getFullUpdatedAppState()
     this.store.dispatch(updateAppStateFull(data))
->>>>>>> b1de29b... Added practice tests in order to play with Jest and cleaned up a bit
   }
 
   //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
@@ -106,15 +93,9 @@ class RedRoom extends React.Component {
         updatedInfo: config.appInitialState[dataName]
       })
     })
-<<<<<<< HEAD
-
-    document.getElementById("redRoomForm").reset()
-    getUpdatedAppState(this.store)
-=======
   const data = await getFullUpdatedAppState()
   this.store.dispatch(updateAppStateFull(data))
   document.getElementById("redRoomForm").reset()
->>>>>>> b1de29b... Added practice tests in order to play with Jest and cleaned up a bit
   }
 
   render(){
