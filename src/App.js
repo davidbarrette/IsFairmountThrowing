@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getFullUpdatedAppState } from './utils.js'
+import { updateAppStateFull } from './actions/actions.js'
 
 import Throwing from './Components/Throwing/Throwing.js'
 import NavigationBar from './Components/NavigationBar/NavigationBar.js';
@@ -20,7 +21,7 @@ import NavigationBar from './Components/NavigationBar/NavigationBar.js';
  * contact David Barrette, he will help to explain the process, as stated above
  *
  * A security thing: should put redRoomPassword in Database so it can't be found on GitHub, isn't super important
- * b/c this isn't a big app, just best practice
+ * b/c this isn't a big app
  * 
  * ALSO --> In order to practice with Git, like in regular web development, there should be mutiple branches denoting the state of the codebase, I think
  * for this website keep it simple initially with a development branch for creating new features and a deployment branch, a stable branch that is what a 
@@ -39,8 +40,9 @@ class App extends React.Component {
     this.store = props
   }
 
-  componentDidMount(){
-    getFullUpdatedAppState(this.store)
+  async componentDidMount(){
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   render(){

@@ -2,14 +2,13 @@ import React from 'react';
 
 import "./RedRoom.css"
 
-import { changeRedRoomPasswordChecked } from '../../../actions/actions';
+import { changeRedRoomPasswordChecked, updateAppStateFull } from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { selectRedRoomData } from '../../../selectors/selectors'
 
 import {putRedRoom} from '../../../services/redRoomAPICalls.js'
+import {getFullUpdatedAppState} from '../../../utils.js'
 import config from '../../../config.json'
-
-import { getFullUpdatedAppState } from '../../../utils.js'
 
 const API_URL = `${config.api.testURL}/RedRoom`
 
@@ -42,8 +41,8 @@ class RedRoom extends React.Component {
         dataName: config.databaseNames.THROWING_STATUS,
         updatedInfo: (str === 'true')
       })
-
-    getUpdatedAppState(this.store)
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Change the party date -----------------------------------------------------------------------------------
@@ -67,7 +66,8 @@ class RedRoom extends React.Component {
       dataName: config.databaseNames.PARTY_DATE,
       updatedInfo: newPartyDate
     })
-    getUpdatedAppState(this.store)
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Change not throwing text -----------------------------------------------------------------------------
@@ -79,7 +79,8 @@ class RedRoom extends React.Component {
       dataName: config.databaseNames.NOT_THROWING_TEXT,
       updatedInfo: notThrowingText
     })
-    getUpdatedAppState(this.store)
+    const data = await getFullUpdatedAppState()
+    this.store.dispatch(updateAppStateFull(data))
   }
 
   //Reset the App to default (for hard coded state changes, this should be changed)-------------------------------
@@ -92,9 +93,9 @@ class RedRoom extends React.Component {
         updatedInfo: config.appInitialState[dataName]
       })
     })
-
-    document.getElementById("redRoomForm").reset()
-    getUpdatedAppState(this.store)
+  const data = await getFullUpdatedAppState()
+  this.store.dispatch(updateAppStateFull(data))
+  document.getElementById("redRoomForm").reset()
   }
 
   render(){
@@ -186,11 +187,11 @@ class RedRoom extends React.Component {
               <button onClick ={(event) => { this.resetAppToInitialState(event) }}> Initial State </button>
               <p>Clicking this button (necessary for password change) will take the state of the app to:</p>
                 <ol>
-                  <li>throwing: "false"</li>
-                  <li>partyDate: "MM/DD"</li>
-                  <li>notThrowingText: "Due to Covid-19, open gatherings are indefinitely postponed</li>
-                  <li>redRoomPassword: "Turck417"</li>
-                  <li>redRoomPasswordChecked: "false"" (Needed for RedRoom security)</li>
+                  <li>throwing: {(config.appInitialState.throwingStatus) ? 'true' : 'false'}</li>
+                  <li>partyDate: {config.appInitialState.partyDate}</li>
+                  <li>notThrowingText: {config.appInitialState.notThrowingText}</li>
+                  <li>redRoomPassword: {config.appInitialState.redRoomPassword}</li>
+                  <li>redRoomPasswordChecked: {(config.appInitialState.redRoomPasswordChecked) ? 'true' : 'false'} (should be false for RedRoom security)</li>
                 </ol>
                 <p><b>^ If you're coding and if you change the initial state, change the hard code here ^</b></p>
             </div>

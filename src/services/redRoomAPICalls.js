@@ -4,8 +4,14 @@ import config from '../config.json'
 //'RedRoom' PUT
 export async function putRedRoom(params){
     try {
+<<<<<<< HEAD
         await axios.put(`${config.api.invokeURL}/RedRoom`, params)
       } catch (err) {
         console.log(`Error in changeThrowingState: ${err}`)
+=======
+        await axios.put(`${config.api.productionURL}/RedRoom`, params)
+      } catch (err) {
+        console.log(`Error in putRedRoom: ${err}`)
+>>>>>>> IntegrateTests
       }
 }
